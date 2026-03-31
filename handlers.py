@@ -70,7 +70,7 @@ async def accept_application(callback: CallbackQuery, state: FSMContext):
 Место: {LOCATION}
 Координаты места: {COORDINATES}
 <a href="https://www.windy.com">Погода в месте ПСР</a>
-{accept_time}
+
 1. Заявка №{APPLICATION_NUMBER} принята пилотом @{username}"""
     
     await callback.message.edit_text(
@@ -105,7 +105,7 @@ async def create_application(callback: CallbackQuery, state: FSMContext):
 Место: {LOCATION}
 Координаты места: {COORDINATES}
 <a href="https://www.windy.com">Погода в месте ПСР</a>
-{accept_time}
+
 1. Заявка №{APPLICATION_NUMBER} принята пилотом @{username}
 —————————————
 Выбор дня полета:"""
