@@ -98,17 +98,16 @@ async def create_application(callback: CallbackQuery, state: FSMContext):
     accept_time = data.get('accept_time', '')
     username = data.get('username', '')
     
-    text = f"""Статус работы по заявке
+    text = f"""🍀🍀🍀Статус работы по заявке🍀🍀🍀
 БВП: {MISSING_PERSON}
 Возраст: {BIRTH_DATE}
 Пропал: {MISSING_DATE}
 Место: {LOCATION}
 Координаты места: {COORDINATES}
 <a href="https://www.windy.com">Погода в месте ПСР</a>
-
 1. Заявка №{APPLICATION_NUMBER} принята пилотом @{username}
 —————————————
-Выбор дня полета:"""
+<b>Выбор дня полета:<b>"""
     
     await callback.message.edit_text(
         text,
@@ -161,7 +160,7 @@ async def select_start_time(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {time_str} (UTC) - 
+<b>Время:<b> {time_str} (UTC) - 
 —————————————
 <b>Укажите:</b> время <b>завершения</b> полета (UTC)"""
     
@@ -204,9 +203,9 @@ async def select_end_time(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} - {time_str} (UTC)
+<b>Время:<b> {start_time} - {time_str} (UTC)
 —————————————
-Укажите: Максимальную высоту работы (истинную)"""
+<b>Укажите:<b> Максимальную высоту работы (истинную)"""
     
     await callback.message.edit_text(
         text,
@@ -225,7 +224,7 @@ async def back_to_end_time(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} (UTC) - 
+<b>Время:<b> {start_time} (UTC) - 
 —————————————
 <b>Укажите:</b> время <b>завершения</b> полета (UTC)"""
     
@@ -250,10 +249,10 @@ async def select_altitude(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} - {end_time} (UTC)
-Нист: 0-{altitude}м
+<b>Время:<b> {start_time} - {end_time} (UTC)
+<b>Нист:<b> 0-{altitude}м
 —————————————
-Укажите: Тип задачи"""
+<b>Укажите:<b> Тип задачи"""
     
     await callback.message.edit_text(
         text,
@@ -273,9 +272,9 @@ async def back_to_altitude(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} - {end_time} (UTC)
+<b>Время:<b> {start_time} - {end_time} (UTC)
 —————————————
-Укажите: Максимальную высоту работы (истинную)"""
+<b>Укажите:<b> Максимальную высоту работы (истинную)"""
     
     await callback.message.edit_text(
         text,
@@ -300,11 +299,11 @@ async def task_polygon(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} - {end_time} (UTC)
-Нист: 0-{altitude}м
-Зона работ:
+<b>Время:<b> {start_time} - {end_time} (UTC)
+<b>Нист:<b> 0-{altitude}м
+<b>Зона работ:<b>
 —————————————
-Укажите: точки полигона по одной в формате GEO=55.799682,37.701270 (широта, долгота):"""
+<b>Укажите:<b> точки полигона по одной в формате GEO=55.799682,37.701270 (широта, долгота):"""
     
     await callback.message.edit_text(text, parse_mode="HTML")
     await state.set_state(ApplicationStates.entering_polygon_coordinates)
@@ -342,11 +341,11 @@ async def enter_polygon_coordinates(message: Message, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} - {end_time} (UTC)
-Нист: 0-{altitude}м
-Зона работ: {zone_text}
+<b>Время:<b> {start_time} - {end_time} (UTC)
+<b>Нист:<b> 0-{altitude}м
+<b>Зона работ:<b> {zone_text}
 —————————————
-Добавлены координаты:
+<b>Добавлены координаты:<b>
 {coords_list}"""
     
     await message.answer(text, reply_markup=get_polygon_coordinates_keyboard(), parse_mode="HTML")
@@ -393,20 +392,19 @@ async def polygon_complete(callback: CallbackQuery, state: FSMContext):
     
     final_text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Тип: Mavic 2 pro, борт №05е1938
-Время: {start_time} - {end_time} (UTC)
-Общее время работы: {work_hours}ч
-ГТ старт/посадка: {gt_start}
-Зона работ:
+<b>Тип:<b> Mavic 2 pro, борт №05е1938
+<b>Время:<b> {start_time} - {end_time} (UTC)
+<b>Общее время работы:<b> {work_hours}ч
+<b>ГТ старт/посадка:<b> {gt_start}
+<b>Зона работ:<b>
 {zone_full}
-Зона работ:
+<b>Зона работ:<b>
 {zone_short}
-Нист: 0-{altitude}м Набс: 0-{altitude}м
-Нист: 0-{altitude}м Набс: 0-{altitude}м
-ФИО пилота: Здесь будут указаны ваши ФИО и телефон
-ФИО инфорга: Здесь будут указаны ФИО инфорга, его телефон и ник в ТГ
-ФИО БВП: {MISSING_PERSON}
-Контакт для связи: @{username}"""
+<b>Нист:<b> 0-{altitude}м <b>Набс:<b> 0-{altitude}м
+<b>ФИО пилота:<b> Здесь будут указаны ваши ФИО и телефон
+<b>ФИО инфорга:<b> Здесь будут указаны ФИО инфорга, его телефон и ник в ТГ
+<b>ФИО БВП:<b> {MISSING_PERSON}
+<b>Контакт для связи:<b> @{username}"""
     
     await state.update_data(final_text=final_text)
     
@@ -433,11 +431,11 @@ async def task_radius(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} - {end_time} (UTC)
-Нист: 0-{altitude}м
-Маршрут радиусом:
+<b>Время:<b> {start_time} - {end_time} (UTC)
+<b>Нист:<b> 0-{altitude}м
+<b>Маршрут радиусом:<b>
 —————————————
-Укажите: Радиус работы:"""
+<b>Укажите:<b> Радиус работы:"""
     
     await callback.message.edit_text(
         text,
@@ -458,10 +456,10 @@ async def back_to_task_type(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} - {end_time} (UTC)
-Нист: 0-{altitude}м
+<b>Время:<b> {start_time} - {end_time} (UTC)
+<b>Нист:<b> 0-{altitude}м
 —————————————
-Укажите: Тип задачи"""
+<b>Укажите:<b> Тип задачи"""
     
     await callback.message.edit_text(
         text,
@@ -485,11 +483,11 @@ async def select_radius(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} - {end_time} (UTC)
-Нист: 0-{altitude}м
-Маршрут радиусом: {radius}
+<b>Время:<b> {start_time} - {end_time} (UTC)
+<b>Нист:<b> 0-{altitude}м
+<b>Маршрут радиусом:<b> {radius}
 —————————————
-Укажите: координаты центра зоны в формате GEO=55.799682,37.701270 (широта,долгота):"""
+<b>Укажите:<b> координаты центра зоны в формате GEO=55.799682,37.701270 (широта,долгота):"""
     
     await callback.message.edit_text(text, parse_mode="HTML")
     await state.set_state(ApplicationStates.entering_radius_center)
@@ -513,7 +511,7 @@ async def enter_radius_center(message: Message, state: FSMContext):
     
     response_text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 —————————————
-Добавлены координаты:
+<b>Добавлены координаты:<b>
 широта: {lat}
 долгота {lon}"""
     
@@ -531,11 +529,11 @@ async def radius_reset(callback: CallbackQuery, state: FSMContext):
     
     text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Время: {start_time} - {end_time} (UTC)
-Нист: 0-{altitude}м
-Маршрут радиусом: {radius}
+<b>Время:<b> {start_time} - {end_time} (UTC)
+<b>Нист:<b> 0-{altitude}м
+<b>Маршрут радиусом:<b> {radius}
 —————————————
-Укажите: координаты центра зоны в формате GEO=55.799682,37.701270 (широта,долгота):"""
+<b>Укажите:<b> координаты центра зоны в формате GEO=55.799682,37.701270 (широта,долгота):"""
     
     await callback.message.edit_text(text, parse_mode="HTML")
     await callback.answer()
@@ -569,17 +567,17 @@ async def radius_confirm(callback: CallbackQuery, state: FSMContext):
     
     final_text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-Тип: Mavic 2 pro, борт №05е1938
-Время: {start_time} - {end_time} (UTC)
-Общее время работы: {work_hours}ч
-ГТ старт/посадка: {lat},{lon}
-ГТ старт/посадка: {lat_short}N,{lon_short}E
-Маршрут радиусом: {radius}
-Нист: 0-{altitude}м Набс: 0-{altitude}м
-ФИО пилота: Здесь будут указаны ваши ФИО и телефон
-ФИО инфорга: Здесь будут указаны ФИО инфорга, его телефон и ник в ТГ
-ФИО БВП: {MISSING_PERSON}
-Контакт для связи: @{username}"""
+<b>Тип:<b> Mavic 2 pro, борт №05е1938
+<b>Время:<b> {start_time} - {end_time} (UTC)
+<b>Общее время работы:<b> {work_hours}ч
+<b>ГТ старт/посадка:<b> {lat},{lon}
+<b>ГТ старт/посадка:<b> {lat_short}N,{lon_short}E
+<b>Маршрут радиусом:<b> {radius}
+<b>Нист:<b> 0-{altitude}м <b>Набс:<b> 0-{altitude}м
+<b>ФИО пилота:<b> Здесь будут указаны ваши ФИО и телефон
+<b>ФИО инфорга:<b> Здесь будут указаны ФИО инфорга, его телефон и ник в ТГ
+<b>ФИО БВП:<b> {MISSING_PERSON}
+<b>Контакт для связи:<b> @{username}"""
     
     await state.update_data(final_text=final_text)
     
