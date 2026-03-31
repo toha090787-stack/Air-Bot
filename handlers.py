@@ -605,10 +605,10 @@ async def submit_application(callback: CallbackQuery, state: FSMContext):
     final_text = data.get('final_text', '')
     visited_group = data.get('visited_group', False)
     
-    result = "Тест сдан" if visited_group else "Тест провален"
+    result = "✅ Тест сдан" if visited_group else "❌ Тест провален"
     
     await callback.message.edit_text(final_text, parse_mode="HTML")
-    await callback.message.answer(f"✅ {result}")
+    await callback.message.answer(f" {result}")
     await callback.answer()
 
 @router.callback_query(F.data == "add_note")
