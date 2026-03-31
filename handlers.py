@@ -63,7 +63,7 @@ async def accept_application(callback: CallbackQuery, state: FSMContext):
     
     await state.update_data(accept_time=accept_time, username=username, visited_group=False)
     
-    text = f"""Статус работы по заявке
+    text = f"""🍀🍀🍀Статус работы по заявке🍀🍀🍀
 БВП: {MISSING_PERSON}
 Возраст: {BIRTH_DATE}
 Пропал: {MISSING_DATE}
@@ -371,6 +371,7 @@ async def polygon_complete(callback: CallbackQuery, state: FSMContext):
     start_time = data.get('start_time', '')
     end_time = data.get('end_time', '')
     altitude = data.get('altitude', '')
+    username = data.get('username', '')
     
     # Вычисление времени работы
     start_hour = int(start_time.split(':')[0])
@@ -400,11 +401,12 @@ async def polygon_complete(callback: CallbackQuery, state: FSMContext):
 {zone_full}
 Зона работ:
 {zone_short}
-Нист: 0-{altitude}м
-ФИО пилота:
-ФИО инфорга:
+Нист: 0-{altitude}м Набс: 0-{altitude}м
+Нист: 0-{altitude}м Набс: 0-{altitude}м
+ФИО пилота: Здесь будут указаны ваши ФИО и телефон
+ФИО инфорга: Здесь будут указаны ФИО инфорга, его телефон и ник в ТГ
 ФИО БВП: {MISSING_PERSON}
-Контакт для связи:"""
+Контакт для связи: @{username}"""
     
     await state.update_data(final_text=final_text)
     
@@ -574,8 +576,8 @@ async def radius_confirm(callback: CallbackQuery, state: FSMContext):
 ГТ старт/посадка: {lat_short}N,{lon_short}E
 Маршрут радиусом: {radius}
 Нист: 0-{altitude}м Набс: 0-{altitude}м
-ФИО пилота: Здесь будет ваше ФИО и телефон
-ФИО инфорга: Здесь буде ФИО инфорга, его телефон и ник в ТГ
+ФИО пилота: Здесь будут указаны ваши ФИО и телефон
+ФИО инфорга: Здесь будут указаны ФИО инфорга, его телефон и ник в ТГ
 ФИО БВП: {MISSING_PERSON}
 Контакт для связи: @{username}"""
     

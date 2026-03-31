@@ -11,18 +11,18 @@ def get_start_keyboard():
 def get_accept_decline_keyboard():
     """Клавиатура принять/отклонить заявку"""
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="Принять", callback_data="accept_application")],
-        [InlineKeyboardButton(text="Отклонить", callback_data="decline_application")]
+        [InlineKeyboardButton(text="✅ Принять", callback_data="accept_application")],
+        [InlineKeyboardButton(text="❌ Отклонить", callback_data="decline_application")]
     ])
     return keyboard
 
 def get_application_menu_keyboard():
     """Меню после принятия заявки"""
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="Принято вами", callback_data="accepted_by_you")],
-        [InlineKeyboardButton(text="Передумал", callback_data="changed_mind")],
-        [InlineKeyboardButton(text="Ссылка на группу", callback_data="group_link")],
-        [InlineKeyboardButton(text="Сформировать заявку", callback_data="create_application")]
+        [InlineKeyboardButton(text="✔ Принято вами", callback_data="accepted_by_you")],
+        [InlineKeyboardButton(text="🤦 Передумал", callback_data="changed_mind")],
+        [InlineKeyboardButton(text="🔗 Ссылка на группу", callback_data="group_link")],
+        [InlineKeyboardButton(text="📮 Сформировать заявку", callback_data="create_application")]
     ])
     return keyboard
 
@@ -67,7 +67,7 @@ def get_time_selection_keyboard(back_callback="back_to_date"):
     if row:
         buttons.append(row)
     
-    buttons.append([InlineKeyboardButton(text="Назад", callback_data=back_callback)])
+    buttons.append([InlineKeyboardButton(text="◀️Назад", callback_data=back_callback)])
     
     keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
     return keyboard
@@ -88,7 +88,7 @@ def get_altitude_keyboard():
     if row:
         buttons.append(row)
     
-    buttons.append([InlineKeyboardButton(text="Назад к времени окончания", callback_data="back_to_end_time")])
+    buttons.append([InlineKeyboardButton(text="◀️Назад к времени окончания", callback_data="back_to_end_time")])
     
     keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
     return keyboard
@@ -99,15 +99,15 @@ def get_task_type_keyboard():
         [InlineKeyboardButton(text="Полигон", callback_data="task_polygon")],
         [InlineKeyboardButton(text="Радиус", callback_data="task_radius")],
         [InlineKeyboardButton(text="Коридор", callback_data="task_corridor")],
-        [InlineKeyboardButton(text="Назад к высоте", callback_data="back_to_altitude")]
+        [InlineKeyboardButton(text="◀️Назад к высоте", callback_data="back_to_altitude")]
     ])
     return keyboard
 
 def get_polygon_coordinates_keyboard():
     """Клавиатура для ввода координат полигона"""
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="Ввести координаты заново", callback_data="polygon_reset")],
-        [InlineKeyboardButton(text="Все точки полигона введены", callback_data="polygon_complete")]
+        [InlineKeyboardButton(text="❌Ввести координаты заново", callback_data="polygon_reset")],
+        [InlineKeyboardButton(text="✅Все точки полигона введены", callback_data="polygon_complete")]
     ])
     return keyboard
 
@@ -128,7 +128,7 @@ def get_radius_keyboard():
     if row:
         buttons.append(row)
     
-    buttons.append([InlineKeyboardButton(text="Назад к выбору типа задачи", callback_data="back_to_task_type")])
+    buttons.append([InlineKeyboardButton(text="◀️Назад к выбору типа задачи", callback_data="back_to_task_type")])
     
     keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
     return keyboard
@@ -136,16 +136,16 @@ def get_radius_keyboard():
 def get_radius_center_keyboard():
     """Клавиатура для координат центра радиуса"""
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="Ввести координаты заново", callback_data="radius_reset")],
-        [InlineKeyboardButton(text="Координаты центра верны", callback_data="radius_confirm")]
+        [InlineKeyboardButton(text="❌Ввести координаты заново", callback_data="radius_reset")],
+        [InlineKeyboardButton(text="✅Координаты центра верны", callback_data="radius_confirm")]
     ])
     return keyboard
 
 def get_final_keyboard():
     """Финальная клавиатура заявки"""
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="Редактировать", callback_data="edit_application")],
-        [InlineKeyboardButton(text="Отправить", callback_data="submit_application")],
+        [InlineKeyboardButton(text="✍Редактировать", callback_data="edit_application")],
+        [InlineKeyboardButton(text="✅Отправить", callback_data="submit_application")],
         [InlineKeyboardButton(text="Добавить произвольную информацию для АК", callback_data="add_note")]
     ])
     return keyboard
