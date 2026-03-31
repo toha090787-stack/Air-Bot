@@ -576,7 +576,7 @@ async def radius_confirm(callback: CallbackQuery, state: FSMContext):
 ФИО пилота: Здесь будет ваше ФИО и телефон
 ФИО инфорга: Здесь буде ФИО инфорга, его телефон и ник в ТГ
 ФИО БВП: {MISSING_PERSON}
-Контакт для связи: @{username}"""
+Контакт для связи: {username}"""
     
     await state.update_data(final_text=final_text)
     
