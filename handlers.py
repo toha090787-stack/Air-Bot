@@ -383,7 +383,7 @@ async def polygon_complete(callback: CallbackQuery, state: FSMContext):
     
     # Короткие координаты (первые 4 цифры без точки)
     zone_short = "\n".join([
-        f"{c['lat'][:4].replace('.', '')}N,{c['lon'][:4].replace('.', '')}E" 
+        f"{c['lat'][:5].replace('.', '')}N,{c['lon'][:5].replace('.', '')}E" 
         for c in coords
     ])
     
@@ -561,8 +561,8 @@ async def radius_confirm(callback: CallbackQuery, state: FSMContext):
     work_hours = end_hour - start_hour if end_hour >= start_hour else 24 - start_hour + end_hour
     
     # Короткие координаты
-    lat_short = lat[:4].replace('.', '')
-    lon_short = lon[:4].replace('.', '')
+    lat_short = lat[:5].replace('.', '')
+    lon_short = lon[:5].replace('.', '')
     
     final_text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
