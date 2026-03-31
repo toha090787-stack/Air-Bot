@@ -71,7 +71,7 @@ async def accept_application(callback: CallbackQuery, state: FSMContext):
 Координаты места: {COORDINATES}
 <a href="https://www.windy.com">Погода в месте ПСР</a>
 {accept_time}
-1. Заявка №{APPLICATION_NUMBER} принята пилотом {username}"""
+1. Заявка №{APPLICATION_NUMBER} принята пилотом @{username}"""
     
     await callback.message.edit_text(
         text,
@@ -572,11 +572,11 @@ async def radius_confirm(callback: CallbackQuery, state: FSMContext):
 ГТ старт/посадка: {lat},{lon}
 ГТ старт/посадка: {lat_short}N,{lon_short}E
 Маршрут радиусом: {radius}
-Нист: 0-{altitude}м
-ФИО пилота:
-ФИО инфорга:
+Нист: 0-{altitude}м Набс: 0-{altitude}м
+ФИО пилота: Здесь будет ваше ФИО и телефон
+ФИО инфорга: Здесь буде ФИО инфорга, его телефон и ник в ТГ
 ФИО БВП: {MISSING_PERSON}
-Контакт для связи:"""
+Контакт для связи: @{username}"""
     
     await state.update_data(final_text=final_text)
     
