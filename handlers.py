@@ -554,6 +554,7 @@ async def radius_confirm(callback: CallbackQuery, state: FSMContext):
     radius = data.get('radius', '')
     lat = data.get('radius_lat', '')
     lon = data.get('radius_lon', '')
+    username = data.get('username', '')
     
     # Вычисление времени работы
     start_hour = int(start_time.split(':')[0])
@@ -576,7 +577,7 @@ async def radius_confirm(callback: CallbackQuery, state: FSMContext):
 ФИО пилота: Здесь будет ваше ФИО и телефон
 ФИО инфорга: Здесь буде ФИО инфорга, его телефон и ник в ТГ
 ФИО БВП: {MISSING_PERSON}
-Контакт для связи: {username}"""
+Контакт для связи: @{username}"""
     
     await state.update_data(final_text=final_text)
     
