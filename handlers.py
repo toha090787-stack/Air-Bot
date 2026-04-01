@@ -399,7 +399,7 @@ async def polygon_complete(callback: CallbackQuery, state: FSMContext):
 {zone_full}
 Зона работ:
 {zone_short}
-Нист: 0-{altitude}м <b>Набс:<b> 0-{altitude}м 
+Нист: 0-{altitude}м Набс: 0-{altitude}м 
 ФИО пилота: Здесь будут указаны ваши ФИО, телефон
 ФИО инфорга: Здесь будут указаны ФИО инфорга, его телефон, ник в ТГ
 ФИО БВП: {MISSING_PERSON}
