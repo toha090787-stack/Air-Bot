@@ -391,19 +391,19 @@ async def polygon_complete(callback: CallbackQuery, state: FSMContext):
     
     final_text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-<b>Тип:<b> Mavic 2 pro, борт №05е1938
-<b>Время:<b> {start_time} - {end_time} (UTC)
-<b>Общее время работы:<b> {work_hours}ч
-<b>ГТ старт/посадка:<b> {gt_start}
-<b>Зона работ:<b>
+Тип: Mavic 2 pro, борт №05е1938
+Время: {start_time} - {end_time} (UTC)
+Общее время работы: {work_hours}ч
+ГТ старт/посадка: {gt_start}
+Зона работ:
 {zone_full}
-<b>Зона работ:<b>
+Зона работ:
 {zone_short}
-<b>Нист:<b> 0-{altitude}м <b>Набс:<b> 0-{altitude}м 
-<b>ФИО пилота:<b> Здесь будут указаны ваши ФИО, телефон
-<b>ФИО инфорга:<b> Здесь будут указаны ФИО инфорга, его телефон, ник в ТГ
-<b>ФИО БВП:<b> {MISSING_PERSON}
-<b>Контакт для связи:<b> @{username}"""
+Нист: 0-{altitude}м <b>Набс:<b> 0-{altitude}м 
+ФИО пилота: Здесь будут указаны ваши ФИО, телефон
+ФИО инфорга: Здесь будут указаны ФИО инфорга, его телефон, ник в ТГ
+ФИО БВП: {MISSING_PERSON}
+Контакт для связи: @{username}"""
     
     await state.update_data(final_text=final_text)
     
@@ -566,17 +566,17 @@ async def radius_confirm(callback: CallbackQuery, state: FSMContext):
     
     final_text = f"""<b>Заявка №{APPLICATION_NUMBER}</b>
 <b>Основной день:</b> {flight_date}
-<b>Тип:<b> Mavic 2 pro, борт №05е1938
-<b>Время:<b> {start_time} - {end_time} (UTC)
-<b>Общее время работы:<b> {work_hours}ч
-<b>ГТ старт/посадка:<b> {lat},{lon}
-<b>ГТ старт/посадка:<b> {lat_short}N,{lon_short}E
-<b>Маршрут радиусом:<b> {radius}
-<b>Нист:<b> 0-{altitude}м <b>Набс:<b> 0-{altitude}м
-<b>ФИО пилота:<b> Здесь будут указаны ваши ФИО, телефон
-<b>ФИО инфорга:<b> Здесь будут указаны ФИО инфорга, его телефон, ник в ТГ
-<b>ФИО БВП:<b> {MISSING_PERSON}
-<b>Контакт для связи:<b> @{username}"""
+Тип: Mavic 2 pro, борт №05е1938
+Время: {start_time} - {end_time} (UTC)
+Общее время работы: {work_hours}ч
+ГТ старт/посадка: {lat},{lon}
+ГТ старт/посадка: {lat_short}N,{lon_short}E
+Маршрут радиусом: {radius}
+Нист: 0-{altitude}м Набс: 0-{altitude}м
+ФИО пилота: Здесь будут указаны ваши ФИО, телефон
+ФИО инфорга: Здесь будут указаны ФИО инфорга, его телефон, ник в ТГ
+ФИО БВП: {MISSING_PERSON}
+Контакт для связи: @{username}"""
     
     await state.update_data(final_text=final_text)
     
