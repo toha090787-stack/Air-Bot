@@ -3,4 +3,4 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BOT_TOKEN = '7867591820:AAGq7yL20aah-Diq4PwhtZMSuQkHr7i-zKU'
+BOT_TOKEN = '7867591820:AAGZAetgXy5ffh5H1A0bb_QE-4NAJy1Jc1Q'
